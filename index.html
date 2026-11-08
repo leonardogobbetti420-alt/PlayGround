@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101a2b" />
+  <meta name="description" content="Dustbyte Run — a tiny pixel runner across the last sunset." />
+  <title>Dustbyte Run — Pixel Runner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Dustbyte Run home"><span class="brand-mark">▰</span><span>DUSTBYTE<span class="brand-dot">.</span></span></a>
+      <div class="top-meta"><span class="status-dot"></span><span>ENDLESS RUNNER</span><span class="meta-divider">/</span><span>WORLD 01</span></div>
+      <button class="icon-button sound-toggle" aria-label="Toggle sound" title="Toggle sound"><span class="sound-icon">♪</span></button>
+    </header>
+
+    <section class="game-stage" aria-label="Dustbyte Run game">
+      <canvas id="game" aria-label="Pixel runner game canvas"></canvas>
+      <div class="stage-vignette"></div>
+
+      <div class="hud" id="hud" aria-live="polite">
+        <div class="hud-stat"><span class="stat-icon">✦</span><span class="stat-label">SCORE</span><strong id="score">00000</strong></div>
+        <div class="hud-center"><span class="hud-world">DUSTY TRAIL</span><span class="hud-separator">—</span><span class="hud-distance" id="distance">0 M</span></div>
+        <div class="hud-stat best-stat"><span class="stat-icon best-icon">↑</span><span class="stat-label">BEST</span><strong id="best">00000</strong></div>
+      </div>
+
+      <section class="intro-card" id="intro" aria-label="Start game">
+        <div class="eyebrow"><span class="eyebrow-line"></span> THE DESERT IS CALLING <span class="eyebrow-line"></span></div>
+        <h1>RUN INTO<br><span>THE SUNSET</span><i>.</i></h1>
+        <p>One more run. One more coin.<br>How far can you make it?</p>
+        <button class="primary-button" id="startButton"><span class="play-triangle">▶</span> START RUN <span class="button-arrow">↗</span></button>
+        <div class="intro-hint"><span class="keycap">SPACE</span><span>or tap to jump</span></div>
+      </section>
+
+      <section class="end-card hidden" id="endCard" aria-live="assertive">
+        <div class="eyebrow"><span class="eyebrow-line"></span> RUN COMPLETE <span class="eyebrow-line"></span></div>
+        <h2 id="endTitle">NICE RUN.</h2>
+        <p class="end-score-label">YOU RAN</p><div class="end-score"><span id="finalScore">0</span><small> M</small></div>
+        <div class="new-record hidden" id="newRecord">✦ NEW PERSONAL BEST ✦</div>
+        <button class="primary-button" id="restartButton"><span class="play-triangle">↻</span> RUN IT BACK <span class="button-arrow">↗</span></button>
+        <div class="end-hint">Every run is a fresh start.</div>
+      </section>
+
+      <button class="pause-button hidden" id="pauseButton" aria-label="Pause game" title="Pause">Ⅱ</button>
+      <div class="pause-overlay hidden" id="pauseOverlay"><div class="pause-content"><span class="pause-bars">Ⅱ</span><h2>TAKE A BREATHER</h2><p>Your run is paused.</p><button class="primary-button" id="resumeButton">▶ &nbsp; KEEP RUNNING</button></div></div>
+      <div class="toast hidden" id="toast">+1 COIN <span>✦</span></div>
+    </section>
+
+    <footer class="bottom-bar">
+      <div class="control-tip desktop-tip"><span class="keycap">SPACE</span><span class="keycap">↑</span><span>JUMP</span><span class="tip-spacer"></span><span class="keycap">P</span><span>PAUSE</span></div>
+      <div class="control-tip mobile-tip"><span class="touch-dot">●</span><span>TAP ANYWHERE TO JUMP</span></div>
+      <div class="footer-center"><span class="pixel-heart">♥</span> MADE FOR THE LONG WAY HOME</div>
+      <div class="version-tag">VER. 1.0.4 <span>•</span> 60 FPS</div>
+    </footer>
+
+    <div class="touch-zone" id="touchZone" aria-hidden="true"><div class="touch-prompt"><span>↑</span><small>TAP TO JUMP</small></div></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
